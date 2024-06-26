@@ -1,0 +1,21 @@
+ moveBackup:
+      startEndpoint: http://minio:9000
+      accessKeyIDSecretRef:
+            name: minio-credentials
+            key: username
+      secretAccessKeySecretRef:
+            name: minio-credentials
+            key: password
+      repoPasswordSecretRef:
+            name: backup-repo
+            key: password
+      endEndpoint: http://minio:9000
+      endAccessKeyIDSecretRef:
+            name: minio-credentials
+            key: username
+      endSecretAccessKeySecretRef:
+            name: minio-credentials
+            key: password
+      endRepoPasswordSecretRef:
+            name: backup-repo
+            key: password
