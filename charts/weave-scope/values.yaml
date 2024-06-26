@@ -1,0 +1,35 @@
+global:
+  image:
+    repository: weaveworks/scope
+    tag: 1.10.1
+    pullPolicy: "IfNotPresent"
+  service:
+    port: 80
+    type: "ClusterIP"
+weave-scope-frontend:
+  enabled: true
+
+  ingress:
+    enabled: enabled
+    name: ingress-name
+    host: www.example.com
+    path: "/"
+    className: ""
+    extraPaths: ""
+    annotations:
+
+  service:
+    serviceName: weave-weave-scope
+    servicePort: 80
+    externalPort: 8080
+
+weave-scope-agent:
+  enabled: true
+  dockerBridge: "docker0"
+  scopeFrontendAddr: ""
+  probeToken: ""
+  rbac:
+    create: true
+  readOnly: false
+  serviceAccount:
+    create: true
